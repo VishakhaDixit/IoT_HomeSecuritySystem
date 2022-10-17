@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,10 +9,37 @@
         android:id="@+id/toolbarMain"
         layout="@layout/app_bar_drawer" />
 
+    <TextView
+        android:id="@+id/weatherStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="left"
+        android:textColor="@color/black"
+        android:hint=" Get Weather Details!!"
+        android:textSize="18dp"
+        android:drawableLeft="@drawable/ic_baseline_cloud_queue_24"
+        android:textStyle="italic" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/getWeatherStatus"
+        android:layout_marginTop="55dp"
+        android:layout_marginStart="290dp"
+        android:layout_marginEnd="50dp"
+        android:text=""
+        android:textSize="10dp"
+        android:onClick="getWeatherDetails"
+        android:drawableLeft="@drawable/ic_baseline_refresh_24"
+        android:backgroundTint="@color/design_default_color_secondary"/>
+
     <ImageButton
         android:id="@+id/btnDisarmed"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="120dp"
         android:layout_alignParentLeft="true"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -24,7 +50,7 @@
 
     <ImageButton
         android:id="@+id/btnHomeArm"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="120dp"
         android:layout_marginStart="165dp"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -36,7 +62,7 @@
     <ImageButton
         android:id="@+id/btnAwayArm"
         android:layout_marginEnd="30dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="120dp"
         android:layout_alignParentRight="true"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -58,16 +84,19 @@
         android:textStyle="bold" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/controlLights"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/controlLights"
         android:layout_below="@id/homeStatus"
-        android:text="CONTROL LIGHTS"
-        android:textSize="20dp"
-        android:backgroundTint="@color/design_default_color_secondary"
         android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
-        android:drawableLeft="@drawable/ic_baseline_lightbulb_24" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/design_default_color_secondary"
+        android:drawableLeft="@drawable/ic_baseline_lightbulb_24"
+        android:text="CONTROL LIGHTS"
+        android:textSize="20dp" />
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
