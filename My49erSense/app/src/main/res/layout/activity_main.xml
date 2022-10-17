@@ -1,20 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageButton
+        android:id="@+id/btnDisarmed"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/disarmed"
+        android:scaleType="fitXY"
+        android:padding="0dp"
+        android:background="@drawable/btn_background" />
+
+    <ImageButton
+        android:id="@+id/btnHomeArm"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="165dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/btn_background"
+        android:padding="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/away" />
+
+    <ImageButton
+        android:id="@+id/btnAwayArm"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="80dp"
+        android:layout_alignParentRight="true"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_baseline_run_circle_24"
+        android:scaleType="fitXY"
+        android:padding="0dp"
+        android:background="@drawable/btn_background" />
+
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/homeStatus"
+        android:layout_below="@+id/btnHomeArm"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="Disarmed!"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/welcome"
-        android:textSize="30sp"
-        android:fontFamily="sans-serif"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/controlLights"
+        android:layout_below="@id/homeStatus"
+        android:text="CONTROL LIGHTS"
+        android:textSize="20dp"
+        android:backgroundTint="@color/design_default_color_secondary"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:drawableLeft="@drawable/ic_baseline_lightbulb_24" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sensors"
+        android:layout_below="@id/controlLights"
+        android:text="SENSORS"
+        android:textSize="20dp"
+        android:backgroundTint="@color/design_default_color_secondary"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        android:drawableLeft="@drawable/ic_baseline_sensors_24" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locks"
+        android:layout_below="@id/sensors"
+        android:text="LOCKS"
+        android:textSize="20dp"
+        android:backgroundTint="@color/design_default_color_secondary"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        android:drawableLeft="@drawable/ic_baseline_lock_24" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/thermostat"
+        android:layout_below="@id/locks"
+        android:text="THERMOSTAT"
+        android:textSize="20dp"
+        android:backgroundTint="@color/design_default_color_secondary"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        android:drawableLeft="@drawable/ic_baseline_device_thermostat_24" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/videos"
+        android:layout_below="@id/thermostat"
+        android:text="VIDEOS"
+        android:textSize="20dp"
+        android:backgroundTint="@color/design_default_color_secondary"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        android:drawableLeft="@drawable/ic_baseline_ondemand_video_24" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/grarageDoors"
+        android:layout_below="@id/videos"
+        android:text="GARAGE DOORS"
+        android:textSize="20dp"
+        android:backgroundTint="@color/design_default_color_secondary"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        android:drawableLeft="@drawable/ic_baseline_garage_24" />
+
+</RelativeLayout>
