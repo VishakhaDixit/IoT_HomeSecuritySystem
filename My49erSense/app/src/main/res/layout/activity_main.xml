@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <include
+        android:id="@+id/toolbarMain"
+        layout="@layout/app_bar_drawer" />
+
     <ImageButton
         android:id="@+id/btnDisarmed"
         android:layout_marginStart="30dp"
