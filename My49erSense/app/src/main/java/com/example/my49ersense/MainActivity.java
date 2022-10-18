@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     TextView weather;
 
     MaterialButton ctrlLights;
+    MaterialButton ctrlVideos;
 
     private final String URL = "https://home.openweathermap.org/data/2.5/weather";
     private final String appId = "6469afdcd8abb7d10a31774fbd8936a4";
@@ -89,6 +90,14 @@ public class MainActivity extends AppCompatActivity {
                 openControlLightsActivity();
             }
         });
+
+        ctrlVideos = (MaterialButton) findViewById(R.id.videos);
+        ctrlVideos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openVideosActivity();
+            }
+        });
     }
 
     public void getWeatherDetails(View view) {
@@ -132,6 +141,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openControlLightsActivity() {
         Intent intent = new Intent(this, ControlLights.class);
+        startActivity(intent);
+    }
+
+    public void openVideosActivity() {
+        Intent intent = new Intent(this, VediosActivity.class);
         startActivity(intent);
     }
 }

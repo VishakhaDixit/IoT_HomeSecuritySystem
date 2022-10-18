@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ControlLights">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbarMain"
+            layout="@layout/app_bar_drawer" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +28,7 @@
             android:layout_marginBottom="10dp"
             android:gravity="center"
             android:text="LIGHTS"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="25dp"
             android:textStyle="bold" />
 
@@ -91,7 +98,7 @@
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="2dp"
-                    android:background="@android:color/holo_green_light" />
+                    android:background="@color/design_default_color_secondary" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -186,7 +193,7 @@
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="2dp"
-                    android:background="@android:color/holo_green_light" />
+                    android:background="@color/design_default_color_secondary" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -281,7 +288,7 @@
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="2dp"
-                    android:background="@android:color/holo_green_light" />
+                    android:background="@color/design_default_color_secondary" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -376,7 +383,7 @@
                 <View
                     android:layout_width="wrap_content"
                     android:layout_height="2dp"
-                    android:background="@android:color/holo_green_light" />
+                    android:background="@color/design_default_color_secondary" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -407,4 +414,6 @@
 
     </LinearLayout>
 
-</RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>
