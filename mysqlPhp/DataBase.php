@@ -77,6 +77,9 @@ class DataBase
         $mb2Bulb1 = $this->prepareData($mb2Bulb1);
         $mb2Bulb2 = $this->prepareData($mb2Bulb2);
 
+        $this->sql = "DELETE FROM lights";
+        mysqli_query($this->connect, $this->sql);
+
         $this->sql =
             "INSERT INTO " . $table . " (lrBulb1, lrBulb2, kitBulb1, kitBulb2, mb1Bulb1, mb1Bulb2, mb2Bulb1, mb2Bulb2) VALUES ('" . $lrBulb1 . "','" . $lrBulb2 . "','" . $kitBulb1 . "','" . $kitBulb2 . "','" . $mb1Bulb1 . "','" . $mb1Bulb2 . "','" . $mb2Bulb1 . "','" . $mb2Bulb2 . "')";
         
