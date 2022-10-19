@@ -41,7 +41,7 @@ public class Login extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String fullname, username, password, email;
+                final String username, password;
                 username = String.valueOf(textInputUsername.getText().toString());
                 password = String.valueOf(textInputPassword.getText().toString());
 
