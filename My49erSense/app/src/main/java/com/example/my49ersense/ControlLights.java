@@ -2,15 +2,17 @@ package com.example.my49ersense;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Switch;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
+
+import org.json.JSONObject;
 
 public class ControlLights extends AppCompatActivity {
 
@@ -25,6 +27,16 @@ public class ControlLights extends AppCompatActivity {
         setContentView(R.layout.activity_control_lights);
 
         lrS1 = (Switch) findViewById(R.id.lrSwitch1);
+        lrS2 = (Switch) findViewById(R.id.lrSwitch2);
+        kitS1 = (Switch) findViewById(R.id.kitSwitch1);
+        kitS2 = (Switch) findViewById(R.id.kitSwitch2);
+        mb1S1 = (Switch) findViewById(R.id.mb1Switch1);
+        mb1S2 = (Switch) findViewById(R.id.mb1Switch2);
+        mb2S1 = (Switch) findViewById(R.id.mb2Switch1);
+        mb2S2 = (Switch) findViewById(R.id.mb2Switch2);
+
+        getStatus();
+
         lrS1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,7 +47,6 @@ public class ControlLights extends AppCompatActivity {
             }
         });
 
-        lrS2 = (Switch) findViewById(R.id.lrSwitch2);
         lrS2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,7 +57,6 @@ public class ControlLights extends AppCompatActivity {
             }
         });
 
-        kitS1 = (Switch) findViewById(R.id.kitSwitch1);
         kitS1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +67,6 @@ public class ControlLights extends AppCompatActivity {
             }
         });
 
-        kitS2 = (Switch) findViewById(R.id.kitSwitch2);
         kitS2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,7 +77,6 @@ public class ControlLights extends AppCompatActivity {
             }
         });
 
-        mb1S1 = (Switch) findViewById(R.id.mb1Switch1);
         mb1S1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,7 +87,6 @@ public class ControlLights extends AppCompatActivity {
             }
         });
 
-        mb1S2 = (Switch) findViewById(R.id.mb1Switch2);
         mb1S2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,7 +97,6 @@ public class ControlLights extends AppCompatActivity {
             }
         });
 
-        mb2S1 = (Switch) findViewById(R.id.mb2Switch1);
         mb2S1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,7 +107,6 @@ public class ControlLights extends AppCompatActivity {
             }
         });
 
-        mb2S2 = (Switch) findViewById(R.id.mb2Switch2);
         mb2S2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -159,5 +164,105 @@ public class ControlLights extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    public void getStatus()
+    {
+        String[] field = new String[0];
+        String[] data = new String[0];
+
+        PutData putData = new PutData("http://192.168.50.59/LoginRegister/getLightsStatus.php", "POST", field, data);
+
+        if(putData.startPut()) {
+            if(putData.onComplete()) {
+                String result = putData.getResult();
+                if(!result.equals("Error: Database connection")) {
+                    // Retrieved data from mysql is in the format: {"error":false,"message":{"id":"6","lrBulb1":"off","lrBulb2":"on","kitBulb1":"on","kitBulb2":"off","mb1Bulb1":"off","mb1Bulb2":"on","mb2Bulb1":"off","mb2Bulb2":"off"}}
+                    Log.i("VIDEO_RECORD_TAG", "Retrieved data from mysql is: " + result);
+
+                    try {
+                        JSONObject jObject = new JSONObject(result);
+                        String errorStatus = jObject.getString("error");
+
+                        if(errorStatus == "false") {
+                            JSONObject messageJson = jObject.getJSONObject("message");
+
+                            if(messageJson.getString("lrBulb1").equals("on")) {
+                                lrS1.setChecked(true);
+                                lrL1 = "on";
+                            }
+                            else {
+                                lrS1.setChecked(false);
+                                lrL1 = "off";
+                            }
+                            if(messageJson.getString("lrBulb2").equals("on")) {
+                                lrS2.setChecked(true);
+                                lrL2 = "on";
+                            }
+                            else {
+                                lrS2.setChecked(false);
+                                lrL2 = "off";
+                            }
+                            if(messageJson.getString("kitBulb1").equals("on")) {
+                                kitS1.setChecked(true);
+                                kitL1 = "on";
+                            }
+                            else {
+                                kitS1.setChecked(false);
+                                kitL1 = "off";
+                            }
+                            if(messageJson.getString("kitBulb2").equals("on")) {
+                                kitS2.setChecked(true);
+                                kitL2 = "on";
+                            }
+                            else {
+                                kitS2.setChecked(false);
+                                kitL2 = "off";
+                            }
+                            if(messageJson.getString("mb1Bulb1").equals("on")) {
+                                mb1S1.setChecked(true);
+                                mb1L1 = "on";
+                            }
+                            else {
+                                mb1S1.setChecked(false);
+                                mb1L1 = "off";
+                            }
+                            if(messageJson.getString("mb1Bulb2").equals("on")) {
+                                mb1S2.setChecked(true);
+                                mb1L2 = "on";
+                            }
+                            else {
+                                mb1S2.setChecked(false);
+                                mb1L2 = "off";
+                            }
+                            if(messageJson.getString("mb2Bulb1").equals("on")) {
+                                mb2S1.setChecked(true);
+                                mb2L1 = "on";
+                            }
+                            else {
+                                mb2S1.setChecked(false);
+                                mb2L1 = "off";
+                            }
+                            if(messageJson.getString("mb2Bulb2").equals("on")) {
+                                mb2S2.setChecked(true);
+                                mb2L2 = "on";
+                            }
+                            else {
+                                mb2S2.setChecked(false);
+                                mb2L2 = "off";
+                            }
+                        }
+
+                    }
+                    catch (Exception e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
     }
 }

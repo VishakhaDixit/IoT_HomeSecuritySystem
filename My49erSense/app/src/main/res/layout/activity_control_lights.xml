@@ -2,12 +2,16 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:scrollbars="none"
+    android:background="@color/white"
     tools:context=".ControlLights">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <include
             android:id="@+id/toolbarMain"
@@ -39,7 +43,7 @@
             android:layout_marginLeft="@dimen/fab_margin"
             android:layout_marginRight="@dimen/fab_margin"
             android:layout_below="@+id/allLights"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:elevation="100dp"
@@ -50,7 +54,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -145,7 +149,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -240,7 +244,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <LinearLayout
@@ -335,7 +339,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <LinearLayout
