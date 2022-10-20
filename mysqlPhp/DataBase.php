@@ -90,13 +90,13 @@ class DataBase
             return false;
     }
 
-    // function getLightStatus($table)
-    // {
-    //     $this->sql = "select * from " . $table;
-    //     $result = mysqli_query($this->connect, $this->sql);
-    //     $row = mysqli_fetch_assoc($result);
-    //     return $row;
-    // }
+    function getLightStatus($table)
+    {
+        $this->sql = "select * from " . $table;
+        $result = mysqli_query($this->connect, $this->sql);
+        $row = mysqli_fetch_assoc($result);
+        return $row;
+    }
 
 }
 
