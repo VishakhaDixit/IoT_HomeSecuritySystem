@@ -36,8 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
     MaterialButton ctrlLights;
     MaterialButton ctrlVideos;
+    MaterialButton btnWeatherSts;
 
-    private final String URL = "https://home.openweathermap.org/data/2.5/weather";
+    private final String URL = "https://api.openweathermap.org/data/2.5/weather";
     private final String appId = "6469afdcd8abb7d10a31774fbd8936a4";
     DecimalFormat df = new DecimalFormat("#.##");
 
@@ -45,8 +46,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_activity_main);
+        getWeatherDetails();        // Display weather details on create.
 
         weather = (TextView) findViewById(R.id.weatherStatus);
+        btnWeatherSts = (MaterialButton) findViewById(R.id.btnWeatherStatus);
+        btnWeatherSts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getWeatherDetails();
+            }
+        });
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -100,9 +109,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void getWeatherDetails(View view) {
+    public void getWeatherDetails() {
         String city = "Charlotte".trim();
         String tempUrl = URL + "?q=" + city + "&appId=" + appId;
+        Log.i("VIDEO_RECORD_TAG", "Weather: Hello");
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, tempUrl, new Response.Listener<String>() {
             @Override
@@ -111,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     JSONObject jsonResponse = new JSONObject(response);
                     JSONArray jsonArray = jsonResponse.getJSONArray("weather");
+                    Log.i("VIDEO_RECORD_TAG", "Weather: " + jsonArray);
                     JSONObject jsonObjectWeather = jsonArray.getJSONObject(0);
                     String description = jsonObjectWeather.getString("description");
                     JSONObject jsonObjectMain = jsonResponse.getJSONObject("main");

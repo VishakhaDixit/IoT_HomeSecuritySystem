@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <include
@@ -13,33 +14,31 @@
         android:id="@+id/weatherStatus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="150dp"
         android:layout_marginBottom="50dp"
         android:gravity="left"
         android:textColor="@color/black"
-        android:hint=" Get Weather Details!!"
-        android:textSize="18dp"
+        android:textSize="12dp"
         android:drawableLeft="@drawable/ic_baseline_cloud_queue_24"
-        android:textStyle="italic" />
+        android:textStyle="bold" />
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/getWeatherStatus"
+        android:id="@+id/btnWeatherStatus"
         android:layout_marginTop="55dp"
         android:layout_marginStart="290dp"
-        android:layout_marginEnd="50dp"
-        android:text=""
-        android:textSize="10dp"
-        android:onClick="getWeatherDetails"
+        android:layout_marginEnd="0dp"
+        android:text="Refresh"
+        android:textSize="11dp"
         android:drawableLeft="@drawable/ic_baseline_refresh_24"
         android:backgroundTint="@color/design_default_color_secondary"/>
 
     <ImageButton
         android:id="@+id/btnDisarmed"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="150dp"
         android:layout_alignParentLeft="true"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -50,7 +49,7 @@
 
     <ImageButton
         android:id="@+id/btnHomeArm"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="150dp"
         android:layout_marginStart="165dp"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -62,7 +61,7 @@
     <ImageButton
         android:id="@+id/btnAwayArm"
         android:layout_marginEnd="30dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="150dp"
         android:layout_alignParentRight="true"
         android:layout_width="80dp"
         android:layout_height="80dp"
