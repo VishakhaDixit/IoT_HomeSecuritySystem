@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     MaterialButton ctrlVideos;
     MaterialButton ctrlSensors;
     MaterialButton ctrlLocks;
+    MaterialButton ctrlThermostat;
     MaterialButton btnWeatherSts;
 
     private final String URL = "https://api.openweathermap.org/data/2.5/weather";
@@ -130,6 +131,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ctrlThermostat = (MaterialButton) findViewById(R.id.thermostat);
+        ctrlThermostat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openThermostatActivity();
+            }
+        });
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -202,6 +211,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openLocksActivity() {
         Intent intent = new Intent(this, Locks.class);
+        startActivity(intent);
+    }
+
+    public void openThermostatActivity() {
+        Intent intent = new Intent(this, Thermostat.class);
         startActivity(intent);
     }
 }
