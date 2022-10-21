@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context=".Locks">
+        tools:context=".GarageDoors">
 
         <include
             android:id="@+id/toolbarLocks"
@@ -29,13 +29,13 @@
                 android:layout_marginEnd="50dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="LOCKS"
+                android:text="Garage Doors"
                 android:textColor="@color/white"
                 android:textSize="25dp"
                 android:textStyle="bold" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/fdCardView"
+                android:id="@+id/grDoorsCardView1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/fab_margin"
@@ -57,57 +57,15 @@
                     android:paddingLeft="25dp">
 
                     <TextView
-                        android:id="@+id/fdLock1"
+                        android:id="@+id/grDoorsLock1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Front Door"
+                        android:text="Car 1 Door"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/fdSpinner"
-                        android:layout_width="100dp"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="133dp"
-                        android:background="@android:drawable/btn_dropdown"
-                        android:layout_gravity="right|center_vertical" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/bdCardView"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/fab_margin"
-                android:layout_marginRight="@dimen/fab_margin"
-                android:layout_below="@+id/fdCardView"
-                android:layout_marginTop="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:elevation="100dp"
-                cardBackgroundColor="@android:color/white"
-                cardCornerRadius="8dp"
-                cardPreventCornerOverlap="true"
-                cardUseCompatPadding="true">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="25dp">
-
-                    <TextView
-                        android:id="@+id/bdLock1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Back Door"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <Spinner
-                        android:id="@+id/bdSpinner"
+                        android:id="@+id/car1Spinner"
                         android:layout_width="100dp"
                         android:layout_height="35dp"
                         android:layout_marginStart="135dp"
@@ -119,12 +77,12 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/gdCardView"
+                android:id="@+id/grDoorsCardView2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/fab_margin"
                 android:layout_marginRight="@dimen/fab_margin"
-                android:layout_below="@+id/fdCardView"
+                android:layout_below="@+id/grDoorsCardView1"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
@@ -141,18 +99,18 @@
                     android:paddingLeft="25dp">
 
                     <TextView
-                        android:id="@+id/gdLock1"
+                        android:id="@+id/grDoorsLock2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Garage Door"
+                        android:text="Car 2 Door"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/gdSpinner"
+                        android:id="@+id/car2Spinner"
                         android:layout_width="100dp"
                         android:layout_height="35dp"
-                        android:layout_marginStart="118dp"
+                        android:layout_marginStart="135dp"
                         android:background="@android:drawable/btn_dropdown"
                         android:layout_gravity="right|center_vertical" />
 
@@ -161,7 +119,7 @@
             </androidx.cardview.widget.CardView>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnUpdateLocks"
+                android:id="@+id/btnUpdateGrDoors"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/gdCardView"

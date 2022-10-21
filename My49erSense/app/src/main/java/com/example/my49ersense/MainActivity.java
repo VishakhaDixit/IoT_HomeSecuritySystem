@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     MaterialButton ctrlSensors;
     MaterialButton ctrlLocks;
     MaterialButton ctrlThermostat;
+    MaterialButton ctrlGrDoors;
     MaterialButton btnWeatherSts;
 
     private final String URL = "https://api.openweathermap.org/data/2.5/weather";
@@ -139,6 +140,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ctrlGrDoors = (MaterialButton) findViewById(R.id.grarageDoors);
+        ctrlGrDoors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openGrDoorsActivity();
+            }
+        });
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -174,9 +183,9 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject jsonObjectSys = jsonResponse.getJSONObject("sys");
                     String countryName = jsonObjectSys.getString("country");
 
-                    output += city + "(" + countryName + ")" + "\nTemp: " + df.format(temp) + "°C" +
-                            "/ Feels Like: " + df.format(feelsLike) + "°C" +
-                            "\n Description: " + description;
+                    output += city + "(" + countryName + ") - " + description +
+                            "\nTemp: " + df.format(temp) + "°C" +
+                            "/ Feels Like: " + df.format(feelsLike) + "°C";
 
                     weather.setText(output);
                 } catch (JSONException e) {
@@ -216,6 +225,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openThermostatActivity() {
         Intent intent = new Intent(this, Thermostat.class);
+        startActivity(intent);
+    }
+
+    public void openGrDoorsActivity() {
+        Intent intent = new Intent(this, GarageDoors.class);
         startActivity(intent);
     }
 }
