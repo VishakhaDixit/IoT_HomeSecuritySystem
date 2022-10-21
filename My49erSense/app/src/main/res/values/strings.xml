@@ -15,4 +15,9 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_dashboard">Dashboard</string>
+    
+    <string-array name="GrDoors">
+        <item>Open</item>
+        <item>Close</item>
+    </string-array>
 </resources>
