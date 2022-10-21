@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
             else 
             {
                 $response['error']= true;
-                $response['message'] = "Failed to read Status of Lights!";
+                $response['message'] = "Failed to read Status of Garage Doors!";
             }
         } 
         else echo "Error: Database connection";
