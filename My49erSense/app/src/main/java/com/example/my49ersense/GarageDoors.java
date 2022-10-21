@@ -19,7 +19,6 @@ import org.json.JSONObject;
 
 public class GarageDoors extends AppCompatActivity {
 
-    private MaterialButton btnUpdate;
     String car1Door = "close", car2Door = "close";
     Spinner car1Sp, car2Sp;
 
@@ -67,7 +66,7 @@ public class GarageDoors extends AppCompatActivity {
         });
 
 
-        getStatus();
+        getGrDoorsStatus();
 
         btnUpdateDoors = (MaterialButton) findViewById(R.id.btnUpdateGrDoors);
         btnUpdateDoors.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +105,7 @@ public class GarageDoors extends AppCompatActivity {
         });
     }
 
-    public void getStatus()
+    public void getGrDoorsStatus()
     {
         String[] field = new String[0];
         String[] data = new String[0];

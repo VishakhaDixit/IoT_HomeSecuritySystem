@@ -20,4 +20,10 @@
         <item>Open</item>
         <item>Close</item>
     </string-array>
+
+    <string-array name="Locks">
+        <item>Lock</item>
+        <item>Unlock</item>
+    </string-array>
+
 </resources>
