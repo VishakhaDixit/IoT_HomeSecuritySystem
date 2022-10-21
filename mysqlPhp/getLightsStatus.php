@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST')
     {
         if ($db->dbConnect()) 
         {
-            $res = $db->getLightStatus("lights");
+            $res = $db->getStatus("lights");
             if ($res) 
             {
                 $response['error']= false;
