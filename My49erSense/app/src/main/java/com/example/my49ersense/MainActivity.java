@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     MaterialButton ctrlLights;
     MaterialButton ctrlVideos;
+    MaterialButton ctrlSensors;
     MaterialButton btnWeatherSts;
 
     private final String URL = "https://api.openweathermap.org/data/2.5/weather";
@@ -112,6 +113,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ctrlSensors = (MaterialButton) findViewById(R.id.sensors);
+        ctrlSensors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSensorsActivity();
+            }
+        });
+
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -174,6 +183,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openVideosActivity() {
         Intent intent = new Intent(this, VediosActivity.class);
+        startActivity(intent);
+    }
+
+    public void openSensorsActivity() {
+        Intent intent = new Intent(this, Sensors.class);
         startActivity(intent);
     }
 }
