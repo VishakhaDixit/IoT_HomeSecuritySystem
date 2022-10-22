@@ -159,7 +159,7 @@
                             android:textStyle="bold" />
 
                         <Switch
-                            android:id="@+id/lrMDSwitch1"
+                            android:id="@+id/lrMDSwitch"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="125dp"
@@ -282,7 +282,7 @@
                             android:textStyle="bold" />
 
                         <Switch
-                            android:id="@+id/lrMDSwitch2"
+                            android:id="@+id/kitMDSwitch"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="125dp"
@@ -419,7 +419,7 @@
                             android:textStyle="bold" />
 
                         <Switch
-                            android:id="@+id/mb1MDSwitch1"
+                            android:id="@+id/mb1MDSwitch"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="125dp"
@@ -542,7 +542,7 @@
                             android:textStyle="bold" />
 
                         <Switch
-                            android:id="@+id/mb2MDSwitch2"
+                            android:id="@+id/mb2MDSwitch"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="125dp"

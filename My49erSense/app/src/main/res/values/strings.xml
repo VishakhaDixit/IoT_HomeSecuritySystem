@@ -26,4 +26,25 @@
         <item>Unlock</item>
     </string-array>
 
+    <string-array name="Mode">
+        <item>Heat</item>
+        <item>Cool</item>
+        <item>Off</item>
+    </string-array>
+
+    <string-array name="Fan">
+        <item>Auto</item>
+        <item>On</item>
+        <item>Off</item>
+    </string-array>
+
+    <string-array name="Temperature">
+        <item>60</item>
+        <item>65</item>
+        <item>70</item>
+        <item>75</item>
+        <item>80</item>
+        <item>85</item>
+    </string-array>
+
 </resources>

@@ -97,7 +97,7 @@ public class Locks extends AppCompatActivity {
                         field[1] = "backDoor";
                         field[2] = "garageDoor";
 
-                        String[] data = new String[8];
+                        String[] data = new String[3];
                         data[0] = frontDoor;
                         data[1] = backDoor;
                         data[2] = garageDoor;
