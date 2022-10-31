@@ -197,7 +197,7 @@ public class Sensors extends AppCompatActivity {
                         data[10] = mb2L2;
                         data[11] = mb2Md;
 
-                        PutData putData = new PutData("http://192.168.50.59/LoginRegister/updateSensorsStatus.php", "POST", field, data);
+                        PutData putData = new PutData(Globals.PHP_URL+"updateSensorsStatus.php", "POST", field, data);
 
                         if(putData.startPut()) {
                             if(putData.onComplete()) {
@@ -223,7 +223,7 @@ public class Sensors extends AppCompatActivity {
         String[] field = new String[0];
         String[] data = new String[0];
 
-        PutData putData = new PutData("http://192.168.50.59/LoginRegister/getSensorsStatus.php", "POST", field, data);
+        PutData putData = new PutData(Globals.PHP_URL+"getSensorsStatus.php", "POST", field, data);
 
         if(putData.startPut()) {
             if(putData.onComplete()) {

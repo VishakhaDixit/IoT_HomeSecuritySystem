@@ -176,7 +176,7 @@ public class Thermostat extends AppCompatActivity {
                         data[6] = upCurTemp;
                         data[7] = upConTemp;
 
-                        PutData putData = new PutData("http://192.168.50.59/LoginRegister/updateThermostatStatus.php", "POST", field, data);
+                        PutData putData = new PutData(Globals.PHP_URL+"updateThermostatStatus.php", "POST", field, data);
 
                         if(putData.startPut()) {
                             if(putData.onComplete()) {
@@ -202,7 +202,7 @@ public class Thermostat extends AppCompatActivity {
         String[] field = new String[0];
         String[] data = new String[0];
 
-        PutData putData = new PutData("http://192.168.50.59/LoginRegister/getThermostatStatus.php", "POST", field, data);
+        PutData putData = new PutData(Globals.PHP_URL+"getThermostatStatus.php", "POST", field, data);
 
         if(putData.startPut()) {
             if(putData.onComplete()) {

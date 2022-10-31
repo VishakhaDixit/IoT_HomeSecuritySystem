@@ -84,7 +84,7 @@ public class GarageDoors extends AppCompatActivity {
                         data[0] = car1Door;
                         data[1] = car2Door;
 
-                        PutData putData = new PutData("http://192.168.50.59/LoginRegister/updateGrDoorStatus.php", "POST", field, data);
+                        PutData putData = new PutData(Globals.PHP_URL+"updateGrDoorStatus.php", "POST", field, data);
 
                         if(putData.startPut()) {
                             if(putData.onComplete()) {
@@ -110,7 +110,7 @@ public class GarageDoors extends AppCompatActivity {
         String[] field = new String[0];
         String[] data = new String[0];
 
-        PutData putData = new PutData("http://192.168.50.59/LoginRegister/getGrDoorStatus.php", "POST", field, data);
+        PutData putData = new PutData(Globals.PHP_URL+"getGrDoorStatus.php", "POST", field, data);
 
         if(putData.startPut()) {
             if(putData.onComplete()) {

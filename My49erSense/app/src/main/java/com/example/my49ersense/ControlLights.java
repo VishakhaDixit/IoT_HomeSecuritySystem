@@ -145,7 +145,7 @@ public class ControlLights extends AppCompatActivity {
                         data[6] = mb2L1;
                         data[7] = mb2L2;
 
-                        PutData putData = new PutData("http://192.168.50.59/LoginRegister/updateLightsStatus.php", "POST", field, data);
+                        PutData putData = new PutData(Globals.PHP_URL+"updateLightsStatus.php", "POST", field, data);
 
                         if(putData.startPut()) {
                             if(putData.onComplete()) {
@@ -171,7 +171,7 @@ public class ControlLights extends AppCompatActivity {
         String[] field = new String[0];
         String[] data = new String[0];
 
-        PutData putData = new PutData("http://192.168.50.59/LoginRegister/getLightsStatus.php", "POST", field, data);
+        PutData putData = new PutData(Globals.PHP_URL+"getLightsStatus.php", "POST", field, data);
 
         if(putData.startPut()) {
             if(putData.onComplete()) {

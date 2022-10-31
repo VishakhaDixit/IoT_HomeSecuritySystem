@@ -102,7 +102,7 @@ public class Locks extends AppCompatActivity {
                         data[1] = backDoor;
                         data[2] = garageDoor;
 
-                        PutData putData = new PutData("http://192.168.50.59/LoginRegister/updateLocksStatus.php", "POST", field, data);
+                        PutData putData = new PutData(Globals.PHP_URL+"updateLocksStatus.php", "POST", field, data);
 
                         if(putData.startPut()) {
                             if(putData.onComplete()) {
@@ -128,7 +128,7 @@ public class Locks extends AppCompatActivity {
         String[] field = new String[0];
         String[] data = new String[0];
 
-        PutData putData = new PutData("http://192.168.50.59/LoginRegister/getLocksStatus.php", "POST", field, data);
+        PutData putData = new PutData(Globals.PHP_URL+"getLocksStatus.php", "POST", field, data);
 
         if(putData.startPut()) {
             if(putData.onComplete()) {
