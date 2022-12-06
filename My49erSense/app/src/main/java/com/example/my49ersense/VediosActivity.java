@@ -22,7 +22,7 @@ public class VediosActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 WebView myWebView = (WebView) findViewById(R.id.activity_camera);
-                myWebView.loadUrl("http://" + Globals.IP + ":8000/");
+                myWebView.loadUrl("http://" + "192.168.10.101" + ":8000/");
             }
         });
     }

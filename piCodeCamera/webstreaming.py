@@ -13,8 +13,11 @@ from motionDetection import motionDetector
 # init the output frame
 outputFrame = None
 lock = threading.Lock()
+motionBool=False
+
 # init flask object
 app = Flask(__name__)
+
 # init the video stream 
 vs = VideoStream(src=0).start()
 time.sleep(2.0)
@@ -25,12 +28,13 @@ def index():
     return render_template("index.html")
 
 def detectMotion(frameCount):
-    global vs, outputFrame, lock
+    global vs, outputFrame, lock, motionBool
 
     md = motionDetector(accumWeight=0.1) # init detector with total frames 
     total = 0
 
     while True:
+        # Read image from web cam and store it in frame 
         # Convert the frame to grayscale & blur it
         frame = vs.read()
         frame = imutils.resize(frame, width=400)
@@ -47,12 +51,17 @@ def detectMotion(frameCount):
             motion = md.detect(gray)
 
             if motion is not None:
+                motionBool = True
                 (thresh, (minX, minY, maxX, maxY)) = motion
                 cv2.rectangle(frame, (minX, minY), (maxX, maxY),
                     (0, 0, 255), 2)
+                    
+            else:
+                motionBool = False
         
         md.update(gray)
         total += 1
+        
         # Acquire lock, set the output frame & release the lock
         with lock:
             outputFrame = frame.copy()
@@ -65,8 +74,10 @@ def generate():
         with lock:
             if outputFrame is None:
                 continue
+                
             # encode the frame in JPEG format
             (flag, encodedImage) = cv2.imencode(".jpg", outputFrame)
+            
             # ensure the frame was successfully encoded
             if not flag:
                 continue
@@ -74,6 +85,14 @@ def generate():
         # yield the output frame in the byte format
         yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + 
             bytearray(encodedImage) + b'\r\n')
+            
+@app.route("/motion_detect")
+def motion_detect():
+	print(motionBool)
+	if motionBool is True:
+		return "True"
+	else:
+		return "False"
 
 @app.route("/video_feed")
 def video_feed():
